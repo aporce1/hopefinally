@@ -61,14 +61,14 @@
         <icon height="360" src="res/icons/windows/Wide310x150Logo.scale-240.png" width="744" />
     </platform>
     <platform name="android">
-        <splash density="land-hdpi" src="res/screens/android/screen-hdpi-landscape.png" />
-        <splash density="land-ldpi" src="res/screens/android/screen-ldpi-landscape.png" />
-        <splash density="land-mdpi" src="res/screens/android/screen-mdpi-landscape.png" />
-        <splash density="land-xhdpi" src="res/screens/android/screen-xhdpi-landscape.png" />
-        <splash density="port-hdpi" src="res/screens/android/screen-hdpi-portrait.png" />
-        <splash density="port-ldpi" src="res/screens/android/screen-ldpi-portrait.png" />
-        <splash density="port-mdpi" src="res/screens/android/screen-mdpi-portrait.png" />
-        <splash density="port-xhdpi" src="res/screens/android/screen-xhdpi-portrait.png" />
+        <splash qualifier="land-hdpi" src="res/screens/android/screen-hdpi-landscape.png" />
+        <splash qualifier="land-ldpi" src="res/screens/android/screen-ldpi-landscape.png" />
+        <splash qualifier="land-mdpi" src="res/screens/android/screen-mdpi-landscape.png" />
+        <splash qualifier="land-xhdpi" src="res/screens/android/screen-xhdpi-landscape.png" />
+        <splash qualifier="port-hdpi" src="res/screens/android/screen-hdpi-portrait.png" />
+        <splash qualifier="port-ldpi" src="res/screens/android/screen-ldpi-portrait.png" />
+        <splash qualifier="port-mdpi" src="res/screens/android/screen-mdpi-portrait.png" />
+        <splash qualifier="port-xhdpi" src="res/screens/android/screen-xhdpi-portrait.png" />
     </platform>
     <platform name="ios">
         <splash height="480" src="res/screens/ios/screen-iphone-portrait.png" width="320" />
@@ -88,6 +88,9 @@
         <splash height="1920" src="res/screens/windows/SplashScreenPhone.scale-240.png" width="1152" />
     </platform>
     <preference name="Fullscreen" value="True" />
+    <platform name="android">
+        <preference name="SplashScreen" value="splash" />
+    </platform>    
     <engine name="android" spec="5.2.1" />
     <engine name="ios" spec="4.2.0" />
     <engine name="windows" spec="4.4.2" />
