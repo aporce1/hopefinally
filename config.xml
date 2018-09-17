@@ -98,7 +98,7 @@
     <plugin name="cordova-plugin-network-information" spec="~2.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="~2.4.2" />
     <plugin name="cordova-plugin-dialogs" spec="~2.0.1" />
-    <plugin name="cordova-plugin-splashscreen" spec="~5.0.3-dev" src="https://github.com/apache/cordova-plugin-splashscreen.git" />
+    <plugin name="cordova-plugin-splashscreen"  />
     <preference name="ShowTitle" value="True" />
     <preference name="KeepRunning" value="False" />
     <preference name="android-minSdkVersion" value="26" />
