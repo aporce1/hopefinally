@@ -16,6 +16,8 @@ var app = {
     },
 
     onDeviceReady: function () {
+
+        //chequeo si tienen internet
         if (checkConnection() == 'NoInternet') {
             navigator.notification.alert(
                 'Sentimos mas o app so funciona com Acceso a Internet por enquanto',  // message
@@ -24,6 +26,9 @@ var app = {
                 'Tchau'                  // buttonName
             );
         }
+
+        //Listo las categorias activas en el panel
+        GetCategories();
 
     }
 };

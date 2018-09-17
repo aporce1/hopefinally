@@ -24,6 +24,60 @@
             getGeoLocation();
         });
     });
+
+    function GetCategories() {
+        $.ajax({
+            //SELECT DISTINCT wp_categorias.categoria FROM wp_categorias, wp_comercios WHERE wp_comercios.`id_cat` = wp_categorias.`id_categoria`
+            url: 'https://gpromo.com.br/getcompanys.php?find=categories',
+            type: 'GET',
+            dataType: 'JSON',
+            success: function (data) {
+                //alert(data);  
+                var panelinicio = "<ul data-role='listview'><li data-icon='carat-d'>Categorias</li>";
+                for (var i = 0; i < data.length; i++) {
+                    var panel = "<li><a href='#' onclick='callcategoria(" + data[i].id_categoria+")'>" + data[i].categoria + "</a></li>";
+                    panelinicio += panel;
+                }
+                var panelcompleto = panelinicio + "</ul>";
+                
+                $("#nav-panel").html(panelcompleto);
+                $("#nav-panel").trigger("updatelayout");
+                $("#nav-panel").trigger("create");
+            }
+        });
+    }
+
+    function callcategoria(catego) {
+        console.log('la categoria es ' + catego);
+    }
+
+//ENVIAR EL CORREO
+
+function SendMail(dataForm) {
+    var postData = $(dataForm).serialize();
+
+    $.ajax({
+        type: 'POST',
+        data: postData,
+        url: 'https://gpromo.com.br/sendform.php',
+        dataType: 'JSON',
+        beforeSend: function (data) {
+            $("#ResultMail").html('<div style="width:100%;text-align:center"><img src="img/ajax-loader.gif" /></div>');
+        },
+        success: function (data) {
+            console.log(data);
+            $('#ResultMail').html(data);
+        },
+        error: function () {
+            console.log('error' );
+
+        }
+    });
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+};
+
+
 $(function () {
     $("#Bar>a").click(function () {
         $.ajax({
@@ -40,13 +94,15 @@ $(function () {
                 for (var c = 0; c < data.length; c++) {
                     var infocancion = "<div class='sEmpresa'>" + data[c].nomeemp + "</div><div class='sInfo'><a href='tel:+55" + data[c].telefone + "'>" + data[c].telefone + "</a></div>";
                     canciones += infocancion;
-                    console.log(infocancion);
+                    //console.log(infocancion);
                 }
                 canciones += "</ul>";
                 $("#pBar").html(canciones);
             }
         })
     });
+
+
     $("#CorrectoresInmovel>a").click(function () {
         $.ajax({
             url: 'https://gpromo.com.br/getcompanys.php?find=companys&cat=18',
